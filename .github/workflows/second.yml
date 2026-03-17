@@ -37,3 +37,11 @@ jobs:
         run: |
           TEXT="$(cat notes.txt)"
           cowsay "$TEXT"
+
+      - name: Install figlet and lolcat
+        run: sudo apt-get update && sudo apt-get install -y figlet lolcat
+
+      - name: Print rainbow banner
+        run: |
+           TEXT="$(cat notes.txt)"
+           figlet "$TEXT" | lolcat
